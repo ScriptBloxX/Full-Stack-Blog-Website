@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+    font-family: 'Roboto', sans-serif;
+}
+::-webkit-scrollbar{
+    background-color: transparent;
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #122755;
+    border-radius: 25px;
+    height: 2px;
+}
+body,html{
+    background-color: #101218;
+}
+#issue{
+    color: #f83f64;
+}
+h2,h3{
+    color: #fff;
+}
+nav{
+    position: fixed;
+    top: 0;
+    transition: all linear .2s;
+    z-index: 10;
+    width: 100%;
+}
+nav:first-child{
+    padding: 2rem;
+}
+nav .right-nav{
+    position: fixed;
+    display: flex;
+    right: 0;
+    top: 0;
+    gap: 1rem;
+}
+nav .right-nav{
+    padding: 1rem;
+}
+nav .right-nav h2{
+    cursor: pointer;
+    transition: all linear .2s;
+    background-color: #000;
+    padding: 1rem;
+    border-radius: 5px;
+}
+nav .right-nav h2:hover{
+    transform: scale(1.1);
+}
+
+.nav-scrolled-color{
+    background-color: #0a0f19;
+}
+
+.previews-blog{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    padding: 2.5rem;
+    padding-top: 6rem;
+}
+.previews-blog .blog-container{
+    position: relative;
+    width: 44%;
+    max-width: 550px;
+    min-width: 250px;
+    height: 300px;
+    background-color: #06070a;
+    border-radius: 5px;
+    transition: all linear .1s;
+    cursor: pointer;
+    overflow: hidden;
+    backdrop-filter: brightness(.5);
+}
+.previews-blog .blog-container .redirect{
+    z-index: 2;
+    position: absolute;
+    margin: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+.previews-blog .blog-container .banner{
+    position: absolute;
+    margin: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    object-fit: cover;
+    filter: brightness(.5);
+}
+.previews-blog .blog-container:hover{
+    transform: scale(1.2);
+    z-index: 3;
+}
+.blog-container .user{
+    position: relative;
+    padding: 1rem;
+    z-index: 1;
+}
+.blog-container .user h3{
+    color: #d5dadf;
+    padding: .4rem;
+    font-family: 'Square Peg', cursive;
+    font-size: 1.5rem;
+}
+.blog-container .user .content{
+    padding-top: .4rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #c5c9ce;
+}
+.blog-container .bottom-nav{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background-color: #1d202b;
+    height: 2rem;
+    padding: 1rem;
+
+    display: flex;
+    gap: 1rem;
+    justify-content: right;
+    align-items: center;
+    z-index: 1;
+}
+.blog-container .bottom-nav i:first-child{
+    position: absolute;
+    left: 1rem;
+}
+.blog-container .bottom-nav h3:nth-child(2){
+    position: absolute;
+    left: 3rem;
+}
+.blog-container .bottom-nav i{
+    font-size: 1.3rem;
+}
+
+/*login & register*/
+.lr-container{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+
+    visibility: hidden;
+    opacity: 0;
+}
+.lr-container .lr-form i{
+    position: absolute;
+    font-size: 3rem;
+    right: 0;
+    color: #e64d6c;
+    cursor: pointer;
+    transition: all linear .1s;
+}
+@keyframes shakingCloseBtn{
+    0%{transform: rotate(7deg);}
+    20%{transform: rotate(-5deg);}
+    40%{transform: rotate(5deg);}
+}
+.lr-container .lr-form i:hover{
+    color: #f83f64;
+    animation: shakingCloseBtn 1s;
+}
+.lr-container .register-form,.lr-container .login-form{
+    position: fixed;
+    width: 500px;
+    height: max-content;
+    background-color: #1d1d25;
+    margin-left: 50%;
+    transform: translateX(-50%) scale(.8);
+    color: #fff;
+    border-radius: 5px;
+
+    visibility: hidden;
+    opacity: 0;
+    
+    transition: all linear .2s;
+}
+.register-form h2,.login-form h2{
+    text-align: center;
+    padding: 1rem;
+}
+.login-form h3{
+    display: inline-block;
+    color: #c5c9ce;
+    left: 0;
+    cursor: pointer;
+}
+.login-form h3:after{
+    display:block;
+    content: '';
+    border-bottom: 2px solid #e64d6c;
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+}
+.login-form h3:hover:after { 
+    transform: scaleX(1); 
+}
+.register-form form,.login-form form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+.register-form form input,.login-form form input{
+    border-radius: 2px;
+    font-size: 20px;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    width: 80%;
+}
+.register-form form button,.login-form form button{
+    border: none;
+    margin-top: 2rem;
+    padding: .5rem;
+    font-size: 20px;
+    letter-spacing: 2px;
+    border-radius: 3rem;
+    cursor: pointer;
+    transition: all linear .1s;
+}
+.register-form form button:hover,.login-form form button:hover{
+    background-color: #131316;
+    transform: scale(1.1);
+    color: #fff;
+}
+/*notification*/
+.notification-container,.notification-comment{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    padding: 1rem;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transform: scale(.7);
+    transition: all linear .2s;
+}
+.notification-container .content-box,.notification-comment .content-box{
+    position: relative;
+    background-color: #15161E;
+    width: max-content;
+    max-width: 500px;
+    height: max-content;
+    border-radius: .5rem;
+    text-align: center;
+    padding: 1rem;
+    transform: scale(.9);
+}
+.notification-container .content-box a{
+    color: #3660bb;
+    text-decoration: none;
+}
+.notification-container .content-box,.notification-comment .content-box{
+    user-select: none;
+}
+.notification-container .content-box i,.notification-comment .content-box i{
+    color: #000000;
+    font-size: 5rem;
+}
+.notification-container .content-box .alert-btn,.notification-comment .content-box .alert-btn{
+    padding-top: 2rem;
+
+    display: flex;
+    justify-content: center;
+}
+.notification-container .content-box .alert-btn h2,.notification-comment .content-box .alert-btn h2{
+    padding: .2rem;
+    background-color: #2eac62;
+    width: max-content;
+    border-radius: .2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all linear .1s;
+    user-select: none;
+}
+.notification-container .content-box .alert-btn h2:hover,.notification-comment .content-box .alert-btn h2:hover{
+    transform: scale(1.1);
+    letter-spacing: 4px;
+}
+.notification-container .content-box .close-btn-alert,.notification-comment .content-box .close-btn-alert{
+    position: absolute;
+    font-size: 3rem;
+    top: 0;
+    right: 0;
+    color: #e64d6c;
+    cursor: pointer;
+    transition: all linear .1s;
+}
+.notification-container .content-box .close-btn-alert:hover,.notification-comment .content-box .close-btn-alert:hover{
+    color: #f83f64;
+    animation: shakingCloseBtn 1s;
+}
+
+/*responsive*/
+@media only screen and (max-width:530px){
+    .lr-container .lr-form{
+        width: 80%;
+    }
+    .lr-container .lr-form form{
+        padding: 1rem;
+    }
+    .login-form form input{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:414px){
+    nav .header-nav{
+        visibility: hidden;
+        opacity: 0;
+    }   
+    nav .right-nav{
+        width: 100%;
+        justify-content: center;
+    }
+}
+@media only screen and (max-width:272px){
+    .lr-container .lr-form{
+        width: 95%;
+    }
+}

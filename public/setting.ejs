@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Setting | StudenBlog</title>
+    <link rel="shortcut icon" href="../image/icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/editor.css">
+    <link rel="stylesheet" href="css/setting.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- notification -->
+    <div class="notification-container">
+        <div class="content-box">
+            <i class="ri-close-line close-btn-alert"></i>
+            <i id="alert-icon" class="ri-alert-line"></i>
+            <h2 class="alert-title">Alert Title</h2> <br>
+            <h3 class="alert-content">N/A</h3>
+        </div>
+    </div>
+    <!-- notification -->
+    <div class="container blur2">
+
+        <%if(data.verify===false){%>
+        <div class="verify-email">
+            <h2>You haven't verified email!</h2>
+            <a href="<%=data.id%>/verify_email">VERIFY HERE</a>
+        </div>
+        <script>
+            document.querySelector('.container').classList.add('pd-top');
+        </script>
+        <%}%>
+
+        <div class="category">
+            <h2 id="my_account-form" class="category_btn">My Account</h2>
+            <h2 id="user_profile-form" class="category_btn">User Profile</h2>
+            <h2 id="favorites-form" class="category_btn">Favorites</h2>
+            <h2 id="logout-btn" class="category_btn">Logout</h2>
+        </div>
+        <div id="<%=data.id%>" class="form">
+        <!-- Form -->
+
+                <div id="my_account-form_" class="miniform active">
+                    <h2>My Account</h2>
+                    <div class="content-container">
+                        <h2>Account Setting</h2>
+                        <h3>ID</h3>
+                        <input placeholder="<%=data.id%>" readonly></input>
+                        <h3>Email</h3>
+                        <input id="email" placeholder="<%=data.email%>" ></input>
+                        <h3>Password</h3>
+                        <input id="password" type="password" placeholder="********"></input>
+                        <h3>Confirm Password</h3>
+                        <input id="cf_password" type="password" placeholder="********"></input>
+                        <div id="my_account" class="summit-btn">Update</div>
+                    </div>
+                </div>
+    
+                <div id="user_profile-form_" class="miniform">
+                    <h2>User Profile</h2>
+                    <div class="content-container">
+                        <h2>General</h2>
+                        <h3>Display Name</h3>
+                        <input id="username" placeholder="<%=data.username%> (still lazy)" readonly></input>
+                        <h3>Bio</h3>
+                        <input id="bio" placeholder="<%=data.bio%>"></input>
+                        <input type="file" class="real_file_btn">
+                        <h2>Profile</h2>
+                        <img id="FileUpload_btn" src="<%=data.profile%>">
+                        <div id="user_profile" class="summit-btn">Update</div>
+                    </div>
+                </div>
+
+                <div id="favorites-form_" class="miniform">
+                    <h2>Favorites</h2>
+                    <div class="content-container">
+                        <h2>Favorite blogs</h2>
+                        <div class="previews-blog"></div>
+                    </div>
+                </div>
+
+            <!-- Form -->
+            </div>
+    <!-- btn -->
+    <div class="button-container">
+        <i id="back_btn" class="ri-arrow-go-back-line"></i>
+    </div>
+
+    </div>
+     
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/modules/alert.js"></script>
+    <script src="/js/modules/upload.js"></script>
+    <script src="/js/modules/setting.js"></script>
+
+    <script src="/js/modules/favorites.js"></script>
+    <script>list_('<%=data.favorites%>');</script>
+
+</body>
+
+</html>

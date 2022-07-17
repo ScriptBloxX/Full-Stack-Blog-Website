@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://studentblog.klmaemn.repl.co/">
+    <meta property="og:title" content="<%=data.title%> | StudentBlog">
+    <meta property="og:description" content="<%=data.main_content%>">
+    <meta property="og:image" content="<%=data.banner%>">
+
+    <title><%=data.title%> | StudentBlog</title>
+    <link rel="shortcut icon" href="../image/icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/viewblog.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <!-- notification -->
+    <div class="notification-container">
+        <div class="content-box">
+            <i class="ri-close-line close-btn-alert"></i>
+            <i id="alert-icon" class="ri-alert-line"></i>
+            <h2 class="alert-title">Alert Title</h2> <br>
+            <h3 class="alert-content">_Null</h3>
+        </div>
+    </div>
+    <div class="blur2">
+    <div class="notification-comment">
+        <div class="content-box">
+            <i id="close_cm_btn" class="ri-close-line close-btn-alert"></i>
+            <i id="alert-icon2" class="ri-message-3-line"></i>
+            <h2 class="alert-title"><%=user_id%></h2> <br>
+            <textarea id="comment_input" class="alert-content" placeholder="comment..." required></textarea>
+            <h2 class="comment-submit-btn">Submit</h2>
+        </div>
+    </div>
+    <!-- notification -->
+    <div class="container">
+        <div class="header-content">
+            <h2><%=data.title%></h2>
+            <h3>Writer: <%=data.writer%></h3>
+        </div>
+        <div class="content">
+            <h2><%=data.main_content%></h2>
+            <br>
+            <%data.content.forEach(line=>{ %>
+                <% if(line.length > 0){ %>
+                    <h2 class="contents"><%=line%></h2>
+                  <% } else{ %>  
+                    <% if(line === ""){ %>
+                        <h2 class="contents">‏‏‎ ‎</h2>
+                    <% } %>
+                    <% if(line.img){ %>
+                        <img src="<%=line.img%>">
+                    <% } %>
+                    <% if(line.iframe){ %>
+                        <iframe src="<%=line.iframe%>"></iframe>
+                    <% } %>
+                 <% } %>
+            <%})%>
+        </div>
+        <!-- right panel -->
+        <div class="right-container">
+            <div class="part1">
+                <div class="user-container">
+                    <div class="user">
+                        <div class="profile">
+                            <img id="profile-<%=data.writer%>" src="https://cdn.dribbble.com/users/5651948/screenshots/12721320/media/f37e46a901f7db41539aec21d7d9bbd9.gif">
+                        </div>
+                        <h2 id="profile-<%=data.writer%>"><%=data.writer%></h2>
+                    </div>
+                    <div class="bio">
+                        <h3 id="bio-<%=data.writer%>"></h3>
+                    </div>
+                </div>
+                <div class="bottom-nav">
+                    <i style="cursor:default;" class="ri-eye-line"> </i>
+                    <h3 id="views"><%=data.views%></h3>
+                    <%if(locals.data.favorite){%>
+                        <i id="favorite-btn" class="ri-heart-2-fill"></i>
+                    <%}else{%>
+                        <i id="favorite-btn" class="ri-heart-2-line"></i>
+                    <%}%>
+                    <h3 id="heart"><%=data.heart%></h3>
+                    <i id="comment_btn" class="ri-message-3-line"></i>
+                    <h3 id="comment"><%=data.comments.length%></h3>
+                </div>
+            </div>
+            <div class="comment-container">
+                <!-- comments -->
+                <%data.comments.forEach(item=>{ %>
+                    <div class="user-container">
+                        <div class="flex-group">
+                            <div class="user_">
+                                <div id="<%=item.id%>" class="profile">
+                                    <img id="profile-<%=item.id%>" src="https://cdn.dribbble.com/users/5651948/screenshots/12721320/media/f37e46a901f7db41539aec21d7d9bbd9.gif">
+                                </div>
+                            </div>
+                            <div class="content">
+                                <h3><%=item.comment%></h3>
+                            </div>
+                        </div>
+                        <h2><%=item.id%> <%=item.date%></h2>
+                    </div>
+                <%})%>
+                <!-- comments -->
+            </div>
+        </div>
+        <!-- end of right panel -->   
+        
+        <!-- btn -->
+        <div class="button-container">
+            <i id="back_btn" class="ri-arrow-go-back-line"></i>
+            <i id="open_comment_from_btn" class="ri-message-3-line"></i>
+            <%if(data.owner === true){%>
+            <i class="ri-edit-2-fill edit-btn"></i>
+            <i class="ri-delete-bin-3-fill delete-btn"></i>
+            <%}%>
+        </div>
+
+        <!-- script -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/js/modules/alert.js"></script>
+        <script src="/js/modules/comment.js"> </script>
+        <script>cp(`<%=data.writer%>`);</script>
+        <script>cp(`<%=data.writer%>`,true);</script>
+        <%data.comments.forEach(item=>{ %>
+            <script>cp(`<%=item.id%>`);</script>
+        <%})%>
+    </div>
+    </div>
+</body>
+</html>

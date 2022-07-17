@@ -1,0 +1,103 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    /*white-space: pre-line;*/
+    line-break: anywhere;
+}
+::-webkit-scrollbar{
+    background-color: transparent;
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #122755;
+    border-radius: 25px;
+    height: 2px;
+}
+.container{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem
+}
+.container .tools{
+    padding: 1rem;
+    background-color: #202230;
+    width: max-content;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.btn{
+    background-color: #5866d4;
+    padding: .5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all linear .1s;
+    height: max-content;
+}
+.container .tools h2:hover{
+    transform: scale(1.1);
+}
+form,.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+
+    padding: 2rem;
+    width: 80%;
+    background-color: #202230;
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+form input,form textarea,.form input,.form textarea{
+    border-radius: 2px;
+    font-size: 1.2rem;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    width: 100%;
+}
+form textarea,.form textarea{
+    max-width: 100%;
+    min-width: 100%;
+}
+form .summit-btn,.form .summit-btn{
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+
+    background-color: #5866d4;
+    padding: .5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all linear .1s;
+    text-align: center;
+}
+form .summit-btn:hover,.form .summit-btn:hover{
+    background-color: #181a2c;
+    transform: scale(1.02);
+}
+.read-only{
+    border-bottom: 2px solid #ffffff21;
+    cursor: default;
+}
+
+@media only screen and (max-width: 778px) {
+    .container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .container .tools,.container form,.container .form{
+        width: 95%;
+    }
+}
+

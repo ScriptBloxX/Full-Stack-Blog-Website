@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://studentblog.klmaemn.repl.co/">
+    <meta property="og:title" content="<%=data.username%> | StudentBlog">
+    <meta property="og:description" content="<%=data.bio%>">
+    <meta property="og:image" content="<%=data.profile%>">
+
+    <title>Profile | StudentBlog</title>
+    <link rel="shortcut icon" href="../image/icon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="profile-container">
+                <div class="box">
+                    <img src="<%=data.profile%>">
+                    <div class="profile-img">
+                        <img src="<%=data.profile%>">
+                    </div>
+                    <div class="profile-status">
+                        <div class="status"></div>
+                    </div>
+                </div>
+                <div class="header-content">
+                    <h2><%=data.username%> (<%=data.id%>)</h2>
+                    <h3><%=data.bio%></h3>
+                </div>
+            </div>
+            <div class="previews-blog"></div>
+            <!-- btn -->
+            <div class="button-container">
+                <i id="back_btn" class="ri-arrow-go-back-line"></i>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../js/modules/profile.js"></script>
+    <script>list_('<%=data.id%>');</script>
+
+</body>
+
+</html>

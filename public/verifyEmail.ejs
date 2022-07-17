@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email</title>
+    <link rel="shortcut icon" href="/image/icon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/setting.css">
+</head>
+<body>
+
+    <div class="verify-box">
+        <%if(data.verify===false){%>
+        <h2>We have sent a link to verify your email to <a target="_blank" href="https://mail.google.com/"><%=data.email%></a>  </h2><br>
+        <h3>Please check and verify your email in 2 minutes.</h3>
+        <%} else if(data.verify===true){%>
+        <h2>Your email has been successfully verified!</h2><br>
+        <h3>You can return to the main page <a href="/"> HERE</a></h3>
+        <%}%>
+    </div>
+
+</body>
+</html>

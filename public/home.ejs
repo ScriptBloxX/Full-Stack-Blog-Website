@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://studentblog.klmaemn.repl.co/">
+    <meta property="og:title" content="StudentBlog">
+    <meta property="og:description" content="Create your blog here. to share experiences with others!">
+    <meta property="og:image" content="https://cdn.discordapp.com/attachments/894762208121192529/990977543261790278/icon.png">
+
+    <title>StudentBlog</title>
+    <link rel="shortcut icon" href="../image/icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <input class="search-bar" type="text" placeholder="Search..">
+            <a href="/blog-editor">CREATE</a>
+            <a href="/profile/<%=id%>">PROFILE</a>
+            <a href="/setting">SETTING</a>
+
+        </nav>
+        <div class="previews-blog"></div>
+    </div>
+
+    <!-- <a href="/logout" class="logout-btn" style="cursor: pointer;background-color: #f11c1c;width: max-content;color: #fff;padding: 1rem;">
+        Logout
+    </a> -->
+    <script src="js/scroll.js"></script>
+    <script src="js/root.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

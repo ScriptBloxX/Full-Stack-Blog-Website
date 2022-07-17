@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://studentblog.klmaemn.repl.co/">
+    <meta property="og:title" content="StudentBlog">
+    <meta property="og:description" content="Create your blog here. to share experiences with others!">
+    <meta property="og:image" content="https://cdn.discordapp.com/attachments/894762208121192529/990977543261790278/icon.png">
+  
+    <title>StudentBlog</title>
+    <link rel="shortcut icon" href="../image/icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="notification-container">
+        <div class="content-box">
+            <i class="ri-close-line close-btn-alert"></i>
+            <i id="alert-icon" class="ri-alert-line"></i>
+            <h2 class="alert-title">Alert Title</h2> <br>
+            <h3 class="alert-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, in expedita. Dolore eos accusantium blanditiis?</h3>
+        </div>
+    </div>
+    <script src="js/root.js"></script>
+    <div class="lr-container">
+        <div class="login-form lr-form">
+            <i class="ri-close-line close-btn"></i>
+            <h2>Login Now!</h2>
+            <form action="/" method="post">
+                <input name="username" placeholder="ID" required></input>
+                <input name="password" type="password" placeholder="Password" required></input>
+                <h3 class="underline forgot-password">Forgot password?</h3>
+                <% if (locals.login_errors){ login_errors.forEach(function(error_msg){ %>
+                    <h5 id="issue">
+                        <%= error_msg %>
+                    </h5>
+                    <script>Popup('login');</script>
+                <% }) } %>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="register-form lr-form">
+            <i class="ri-close-line close-btn"></i>
+            <h2>Register Now!</h2>
+            <form action="/register" method="post">
+                <input name="email" type="email" placeholder="Email" value="<%= (locals.old_data) ? old_data.email : '' %>" required></input>
+                <input name="username" placeholder="ID" value="<%= (locals.old_data) ? old_data.username : '' %>" required></input>
+                <input name="password" type="password" placeholder="Password" required></input>
+                <input name="cf_password" type="password" placeholder="Confirm Password" required></input>
+                <% if (locals.register_error){ register_error.forEach(function(error_msg){ %>
+                    <h5 id="issue">
+                        <%= error_msg %>
+                    </h5>
+                    <script>Popup('register');</script>
+                <% }) } %>
+                <button id="register-btn" type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <nav>
+            <h2 class="header-nav">StudentBlog</h2>
+            <div class="right-nav">
+                <h2 id="btn">Login</h2>
+                <h2 id="btn">Register</h2>
+            </div>
+        </nav>
+        <div class="previews-blog"></div>
+    </div>
+    <script src="js/scroll.js"></script>
+    <script src="js/root.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

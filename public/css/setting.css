@@ -1,0 +1,306 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+::-webkit-scrollbar{
+    background-color: transparent;
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #122755;
+    border-radius: 25px;
+    height: 2px;
+}
+.container{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    height: 100vh;
+}
+.category,.form{
+    padding: 1rem;
+    height: max-content;
+    background-color: #202230;
+    border-radius: 5px;
+}
+.category{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.form{
+    position: relative;
+    width: 70%;
+    overflow: hidden;
+    transition: all linear .2s;
+    justify-content: unset;
+}
+
+/*category*/
+.category h2,#logout-btn{
+    cursor: pointer;
+    --c: #7f8be9;
+    line-height: 1.2em;
+    background:
+      conic-gradient(from -135deg at 100%  50%,var(--c) 90deg,#0000 0) 
+        0    var(--p,0%)/var(--s,0%) 200% no-repeat,
+      conic-gradient(from -135deg at 1.2em 50%,#0000 90deg,var(--c) 0) 
+        100% var(--p,0%)/var(--s,0%) 200% no-repeat;
+    transition: .4s ease-in, background-position 0s;
+}
+/*logout*/
+#logout-btn{
+    background-color: #e42b50;
+}
+#logout-btn{
+    --c: #b4203e;
+}
+.category h2:hover,#logout-btn:hover{
+    --p: 100%;
+    --s: calc(50% + 1em);
+}
+.category h2,.form h2{
+    background-color: #5866d4;
+    padding: .5rem;
+    border-radius: 5px;
+}
+.form .content-container{
+    padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.miniform{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    width: 100%;
+    left: 100%;
+    opacity: 0;
+}
+.form .active{
+    transition: all linear .7s;
+    position: relative;
+    left: 0;
+    opacity: 1;
+}
+.form input{
+    border-bottom: 2px solid #d4d4d4;
+}
+input[readonly]{
+    cursor: no-drop;
+}
+input[readonly]::placeholder{
+    color: #f32b1d93;
+}
+.form .content-container h2{
+    background-color: #1f3b77;
+    padding: .3rem;
+    width: max-content;
+}
+.form .content-container img{
+    max-width: 30%;
+    max-height: 30%;
+    max-height: 500px;
+    border-radius: 5px;
+    cursor: pointer;
+    object-fit: cover;
+    transition: all linear .1s;
+}
+.form .content-container img:hover{
+    transform: scale(1.05);
+}
+
+
+.real_file_btn{
+    display: none;
+}
+.file-upload-container .custom_file_btn{
+    background-color: #5866d4;
+    color: #fff;
+    font-size: 1rem;
+    padding: .5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all linear .1s;
+    width: max-content;
+}
+.file-upload-container .custom_file_btn:hover{
+    background-color: #7f8be9;
+    transform: scale(1.1);
+}
+
+.container .verify-email{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    background-color: #1e1f2b;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: .5rem;
+}
+.container .verify-email a{
+    font-size: 1.3rem;
+    color: #5866d4;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all linear .3s;
+    padding: .2rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.container .verify-email a:hover{
+    background-color: #cfd2fc;
+    letter-spacing: 2px;
+}
+
+/*other page*/
+.verify-box{
+    background-color:#202230;
+    padding: 2rem;
+
+    width: 60%;
+    position: absolute;
+
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 2rem;
+    border-radius: 5px;
+}
+.verify-box h3{
+    color: #d4d4d4;
+}
+.verify-box a{
+    color: #1f3b77;
+    text-decoration: none;
+}
+
+/*forgot password*/
+.input_id{
+    margin-top: 1rem;
+    border-radius: .5rem;
+    font-size: 1.2rem;
+    width: 50%;
+}
+.summit_btn{
+    color: #fff;
+    border: 0;
+    font-size: 1rem;
+    background-color: #7e85bb;
+    padding: .2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all linear .2s;
+
+    margin-top: 6px;
+}
+.summit_btn:hover{
+    letter-spacing: 1px;
+    background-color: #4c5174;
+}
+
+/*Favorites*/
+.previews-blog{
+    padding: 0;
+    justify-content: start;
+}
+.previews-blog .blog-container{
+    max-width: 300px;
+    max-height: 200px;
+}
+.previews-blog .blog-container h2{
+    background-color: transparent;
+}
+.form .content-container .previews-blog .blog-container .banner{
+    max-width: unset;
+}
+
+@media only screen and (min-width: 779px){
+    .pd-top{
+        padding-top: 3.5rem;
+    }
+}
+@media only screen and (max-width: 861px){
+    .previews-blog{
+        justify-content: center;
+    }
+    .form{
+        flex-direction: unset;
+        overflow-x: auto;
+        overflow-y: auto;
+    }
+    .miniform{
+        transform: scale(0);
+        overflow: hidden;
+    }
+    .container .form .active{
+        transform: scale(1);
+        overflow: unset;
+        transition: all linear .3s;
+    }
+}
+@media only screen and (max-width: 778px){
+    .container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .container .category{
+        text-align: center;
+    }
+    .container .category,.container .form{
+        width: 95%;
+    }
+    .container .verify-email{
+        position: relative;
+        flex-direction: column;
+    }
+    .form .content-container{
+        padding-left: 0;
+
+        display: flex;
+        justify-content: center;
+    }
+    .form .content-container img{
+        align-self: center;
+        max-width: 60%;
+    }
+    .verify-box{
+        width: 90%;
+    }
+    .input_id{
+        width: 100%;
+    }
+}
+
+/*btn container*/
+.button-container{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    background-color: #1e1f2b;
+    width: max-content;
+    padding: .35rem;
+    border-top-right-radius: 1.5rem;
+
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    z-index: 3;
+}
+.button-container i{
+    color: #5866d4;
+    font-size: 2rem;
+    padding: .5rem;
+    cursor: pointer;
+    transition: all linear .1s;
+}
+.button-container i:hover{
+    transform: scale(1.1);
+}

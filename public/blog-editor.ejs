@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://studentblog.klmaemn.repl.co/">
+    <meta property="og:title" content="Create Your Blog | StudentBlog">
+    <meta property="og:description" content="Create your blog here. to share experiences with others!">
+    <meta property="og:image" content="../image/icon.png">
+
+    <title>StudentBlog | Editor</title>
+    <link rel="shortcut icon" href="../image/icon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/editor.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <!-- notification -->
+    <div class="notification-container">
+        <div class="content-box">
+            <i class="ri-close-line close-btn-alert"></i>
+            <i id="alert-icon" class="ri-alert-line"></i>
+            <h2 class="alert-title">Alert Title</h2> <br>
+            <h3 class="alert-content">N/A</h3>
+        </div>
+    </div>
+    <!-- notification -->
+    <div class="container blur2">
+        <div class="tools">
+            <h2 id="add_input" class="btn">Text</h2>
+            <h2 id="add_input" class="btn">Image</h2>
+            <h2 id="add_input" class="btn">Iframe</h2>
+        </div>
+        <form action="/blog/create" method="post">
+            <div class="form-container">
+                <input id="title" placeholder="Title"  value="<%= (locals.old_data) ? old_data.title : '' %>" required>
+                <textarea id="main_content" placeholder="Main Content" required><%= (locals.old_data) ? old_data.main_content : '' %></textarea>
+                <input id="banner" placeholder="Banner URL Address" value="<%= (locals.old_data) ? old_data.banner : '' %>" required>
+
+                <%if(locals.old_data){%>
+                    <%old_data.content.forEach(data=>{ %>
+                        <% if(data.length > 0){ %>
+                            <input required id="new_line" placeholder="Text" value="<%=data%>">
+                        <% } else{ %>  
+                            <% if(data === ""){ %>
+                                <input required id="new_line" placeholder="Text" value="">                        
+                            <% } %>
+                            <% if(data.img){ %>
+                                <input required id="new_line" placeholder="URL Address" class="image_input" value="<%=data.img%>">
+                            <% } %>
+                            <% if(data.iframe){ %>
+                                <input required id="new_line" placeholder="Embed (Only URL Address)" class="iframe_input" value="<%=data.iframe%>">
+                            <% } %>
+                        <% } %>
+                    <%})%>
+                <%}%>
+            </div>
+            <%if(locals.old_data){%>
+                <div class="summit-btn edit-b">Edit</div>
+            <%}else{%>
+                <div class="summit-btn">Create</div>
+            <%}%>
+        </form>
+    </div>
+    
+    <!-- script -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/modules/alert.js"></script>
+    <script src="/js/modules/blog_editor.js"></script>
+</body>
+</html>
