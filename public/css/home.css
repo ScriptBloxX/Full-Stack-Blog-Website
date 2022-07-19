@@ -52,6 +52,9 @@ nav .search-bar{
 .search-bar:focus{
     width: 50%;
 }
+.hide{
+    display: none;
+}
 
 /*responsive*/
 @media only screen and (max-width:556px){
